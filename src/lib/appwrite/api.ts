@@ -356,3 +356,34 @@ export async function searchPosts(searchTeerm: string) {
         console.log(error);
     }
 }
+
+export async function getUsers() {
+    try {
+        const users = await databases.listDocuments(
+            appwriteConfig.databaseId,
+            appwriteConfig.usersCollectionId,
+            [Query.orderAsc("$createdAt")]
+        );
+
+        if (!users) throw Error;
+
+        return users;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function getUserById(userId: string) {
+    try {
+        const user = await databases.getDocument(
+            appwriteConfig.databaseId,
+            appwriteConfig.usersCollectionId,
+            userId
+        );
+        if (!user) throw Error;
+
+        return user;
+    } catch (error) {
+        console.log(error);
+    }
+}
