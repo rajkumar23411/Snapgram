@@ -35,7 +35,7 @@ function PostCard({ post }: PostCardProps) {
                             <p className="subtle-semibold lg:small-regular">
                                 {multiFormatDateString(post.$createdAt)}
                             </p>
-                            -{" "}
+                            -
                             <p className="subtle-semibold lg:small-regular">
                                 {post.location}
                             </p>
@@ -77,5 +77,4 @@ function PostCard({ post }: PostCardProps) {
         </div>
     );
 }
-
 export default PostCard;
